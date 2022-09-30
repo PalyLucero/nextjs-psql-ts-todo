@@ -19,7 +19,7 @@ export default function NewPage() {
 
     const loadTask = async (id: string) => {
         try {
-            const res = await fetch('http://https://ts-next-todo.onrender.com/api/tasks' + id)
+            const res = await fetch('https://ts-next-todo.onrender.com/api/tasks' + id)
             if (res.status === 400) throw new Error('Invalid ID')
             const current = await res.json()
             setTask({ title: current[0].title, description: current[0].description })
