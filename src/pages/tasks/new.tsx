@@ -19,7 +19,7 @@ export default function NewPage() {
 
     const loadTask = async (id: string) => {
         try {
-            const res = await fetch('http://ts-next-todo.onrender.com/api/tasks' + id)
+            const res = await fetch('http://ts-next-todo.onrender.com/api/tasks/' + id)
             if (res.status === 400) throw new Error('Invalid ID')
             const current = await res.json()
             setTask({ title: current[0].title, description: current[0].description })
@@ -40,7 +40,7 @@ export default function NewPage() {
 
     const updateTask = async (task: Task) => {
         try {
-            const req = await fetch('http://ts-next-todo.onrender.com/api/tasks' + router.query.id, {
+            const req = await fetch('http://ts-next-todo.onrender.com/api/tasks/' + router.query.id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export default function NewPage() {
 
     const handleDelete = async () => {
         try {
-            await fetch('http://ts-next-todo.onrender.com/api/tasks' + router.query.id, {
+            await fetch('http://ts-next-todo.onrender.com/api/tasks/' + router.query.id, {
                 method: 'DELETE'
             })
             router.push('/')
