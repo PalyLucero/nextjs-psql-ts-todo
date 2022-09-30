@@ -29,7 +29,7 @@ export default function Index({ tasks }: Props) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://0.0.0.0:10000/api/tasks')
+  const res = await fetch('https://ts-next-todo.onrender.com/api/tasks')
   const tasks = await res.json()
 
   return {
